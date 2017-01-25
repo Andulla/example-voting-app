@@ -24,7 +24,7 @@ services:
       placement:
         constraints: [node.role == manager]
   vote:
-    image: 172.28.128.13/examplevotingapp_vote:before
+    image: 172.28.128.13/admin/examplevotingapp_vote:before
     ports:
       - 5000:80
     networks:
@@ -38,7 +38,7 @@ services:
       restart_policy:
         condition: on-failure
   result:
-    image: 172.28.128.13/examplevotingapp_result:before
+    image: 172.28.128.13/admin/examplevotingapp_result:before
     ports:
       - 5001:80
     networks:
@@ -54,7 +54,7 @@ services:
         condition: on-failure
 
   worker:
-    image: 172.28.128.13/examplevotingapp_worker
+    image: 172.28.128.13/admin/examplevotingapp_worker
     networks:
       - frontend
       - backend
