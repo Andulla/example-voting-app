@@ -15,7 +15,7 @@ services:
       restart_policy:
         condition: on-failure
   db:
-    image: 172.28.128.13/postgres:9.4
+    image: 172.28.128.13/admin/postgres:9.4
     volumes:
       - db-data:/var/lib/postgresql/data
     networks:
