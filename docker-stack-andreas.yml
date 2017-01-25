@@ -2,7 +2,7 @@ version: "3"
 services:
 
   redis:
-    image: dtrnode01/admin/redis:alpine
+    image: 172.28.128.13/admin/redis:alpine
     ports:
       - "6379"
     networks:
@@ -15,7 +15,7 @@ services:
       restart_policy:
         condition: on-failure
   db:
-    image: dtrnode01/postgres:9.4
+    image: 172.28.128.13/postgres:9.4
     volumes:
       - db-data:/var/lib/postgresql/data
     networks:
@@ -24,7 +24,7 @@ services:
       placement:
         constraints: [node.role == manager]
   vote:
-    image: dtrnode01/examplevotingapp_vote:before
+    image: 172.28.128.13/examplevotingapp_vote:before
     ports:
       - 5000:80
     networks:
@@ -38,7 +38,7 @@ services:
       restart_policy:
         condition: on-failure
   result:
-    image: dtrnode01/examplevotingapp_result:before
+    image: 172.28.128.13/examplevotingapp_result:before
     ports:
       - 5001:80
     networks:
@@ -54,7 +54,7 @@ services:
         condition: on-failure
 
   worker:
-    image: dtrnode01/examplevotingapp_worker
+    image: 172.28.128.13/examplevotingapp_worker
     networks:
       - frontend
       - backend
